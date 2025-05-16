@@ -6,11 +6,11 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      // ánh xạ process -> process/browser
-      process: "process/browser",
+      "@": "/src",
+      "@components": "/src/components",
+      "@store": "/src/store",
+      "@routes": "/src/routes",
+      "@layouts": "/src/layouts",
     },
-  },
-  define: {
-    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
   },
 });
