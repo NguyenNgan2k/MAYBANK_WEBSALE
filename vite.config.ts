@@ -10,6 +10,8 @@ export default defineConfig({
       "@store": "/src/store",
       "@routes": "/src/routes",
       "@layouts": "/src/layouts",
+      "@assets": "/src/assets",
+      "@pages": "/src/pages",
     },
   },
 });

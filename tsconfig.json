@@ -23,7 +23,9 @@
       "@components/*": ["components/*"],
       "@store/*": ["store/*"],
       "@routes/*": ["routes/*"],
-      "@layouts/*": ["layouts/*"]
+      "@layouts/*": ["layouts/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*": ["pages/*"]
     }
   }
 }

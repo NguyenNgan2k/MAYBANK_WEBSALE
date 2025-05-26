@@ -1,0 +1,15 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-txt-primary);
+}

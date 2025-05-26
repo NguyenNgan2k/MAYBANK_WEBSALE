@@ -1,15 +1,15 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
-import DefaultLayout from "@/layouts/defaultLayout";
+import DefaultLayout from "@/layouts/DefaultLayout";
 
 // const Login = React.lazy(() => import("@containers/login"));
-// const Dashboard = React.lazy(() => import("@containers/dashboard"));
+const DashboardPage = React.lazy(() => import("@pages/dashboard/index"));
 interface PrivateRouteProps {
   children: JSX.Element;
 }
 
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
-  const isAuthenticated = true; // TODO: replace with real auth logic
+  const isAuthenticated = true;
   return isAuthenticated ? children : <Navigate to="/login" replace />;
 };
 
@@ -19,18 +19,16 @@ const AppRoutes: React.FC = () => {
     <Routes>
       {/* <Route path="/login" element={<Login />} /> */}
 
-      <Route path="/home" element={<DefaultLayout />}>
-        {/* <Route
-          path="dashboard"
+      <Route element={<DefaultLayout />}>
+        <Route
+          path="/home"
           element={
             <PrivateRoute>
-              <Dashboard />
+              <DashboardPage />
             </PrivateRoute>
           }
-        /> */}
-        <Route index element={<Navigate to="dashboard" replace />} />
+        />
       </Route>
-
       <Route path="/" element={<Navigate to="/login" replace />} />
     </Routes>
   );

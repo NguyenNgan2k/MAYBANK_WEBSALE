@@ -3,6 +3,8 @@ import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
 import './index.css'
+import './assets/css/styles.css';
+
 import App from './App'
 import rootReducer from './store/reducers';
 import rootSagas from './store/sagas';
@@ -36,7 +38,7 @@ function debug(bool: boolean) {
   }
 }
 
-debug(process.env.NODE_ENV !== 'production');
+// debug(process.env.NODE_ENV !== 'production');
 
 const container = document.getElementById('root') as HTMLElement;
 
