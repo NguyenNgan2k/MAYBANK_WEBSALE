@@ -1,0 +1,37 @@
+.nav-left {
+  padding: 8px;
+  background-color: var(--color-bg-section);
+  border-radius: 20px;
+  height: calc(100vh - 16px);
+}
+
+.nav-left ul {
+  padding: 12px 0;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-left ul li a {
+  height: 36px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-left ul li:hover a {
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+  border-radius: 1000px;
+}
+
+.nav-left ul li.active a {
+  color: var(--color-text-primary);
+  background: var(--color-bg-secondary);
+  border-radius: 1000px;
+}
+
+.nav-left ul li:hover a img svg {
+  fill: var(--color-text-primary) !important;
+}

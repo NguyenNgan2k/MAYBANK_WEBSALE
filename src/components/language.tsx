@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import FlagVn from "@assets/img/icon/flag/vi.png"
 import IconVn from "@assets/img/icon/flag/vn-icon.png"
-import FlagEn from "@assets/img/icon/flag/en.png"
 import IconEn from "@assets/img/icon/flag/en-icon.png"
 
 
@@ -18,15 +16,15 @@ function Language(props: Props): JSX.Element {
   }
   return (
     <div className="relative">
-      <div className="flex items-center px-2 py-1 border rounded-[14px] cursor-pointer w-14" onClick={() => setOpen(!open)}>
-        <p className="text-xs font-bold text-[#646464]">{lang === 'vn' ? 'VN' : 'EN'}</p>
-        <img src={lang === 'vn' ? IconVn : IconEn} className="w-4 h-4 ml-2" />
+      <div className="flex items-center px-2 py-1 border rounded-full cursor-pointer" onClick={() => setOpen(!open)}>
+        <p className="font-bold">{lang === 'vn' ? 'VN' : 'EN'}</p>
+        <img src={lang === 'vn' ? IconVn : IconEn} className="w-5 h-5 ml-2" />
       </div>
       {
         open && (
-          <ul className="w-28 border rounded shadow-xl absolute top-5 left-2 bg-white">
-            <li className="flex p-3 hover:bg-[#f2f2f2]" onClick={() => handleOnclick('vn')}>VN <img src={FlagVn} className="ml-2" /></li>
-            <li className="flex p-3 hover:bg-[#f2f2f2]" onClick={() => handleOnclick('en')}>EN <img src={FlagEn} className="ml-2" /></li>
+          <ul className="dropdown w-28 absolute top-7 right-0">
+            <li className="flex gap-4 items-center" onClick={() => handleOnclick('vn')}><img src={IconVn} className="w-6 h-6" /> VN</li>
+            <li className="flex gap-4 items-center" onClick={() => handleOnclick('en')}><img src={IconEn} className="w-6 h-6" />EN</li>
           </ul>
         )
       }

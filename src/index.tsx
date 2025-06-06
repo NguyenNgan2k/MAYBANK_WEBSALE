@@ -4,6 +4,7 @@ import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
 import './index.css'
 import './assets/css/styles.css';
+import './assets/css/nav.css';
 
 import App from './App'
 import rootReducer from './store/reducers';

@@ -12,6 +12,7 @@ export default defineConfig({
       "@layouts": "/src/layouts",
       "@assets": "/src/assets",
       "@pages": "/src/pages",
+      "@utils": "/src/utils",
     },
   },
 });

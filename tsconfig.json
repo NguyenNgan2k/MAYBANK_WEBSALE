@@ -25,7 +25,8 @@
       "@routes/*": ["routes/*"],
       "@layouts/*": ["layouts/*"],
       "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"]
+      "@pages/*": ["pages/*"],
+      "@utils/*": ["utils/*"]
     }
   }
 }

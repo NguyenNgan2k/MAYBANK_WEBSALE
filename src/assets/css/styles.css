@@ -10,6 +10,42 @@
 }
 
 body {
-  background-color: var(--color-bg-primary);
-  color: var(--color-txt-primary);
+  background-color: var(--color-bg-body);
+  color: var(--color-txt-body);
+  font-size: 12px;
+  padding: 8px;
+}
+
+.main {
+  height: calc(100vh - 16px);
+}
+
+.card {
+  background-color: var(--color-bg-section);
+  border-radius: 20px;
+  padding: 12px;
+}
+
+.dropdown {
+  background-color: var(--color-bg-dropdown);
+  border-radius: 12px;
+  padding: 8px;
+  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color),
+    0 8px 10px -6px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.dropdown li {
+  padding: 8px;
+  color: var(--color-txt-subtitle);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.dropdown li:hover {
+  color: var(--color-txt-title);
+  background-color: var(--color-bg-dropdown-active);
 }
