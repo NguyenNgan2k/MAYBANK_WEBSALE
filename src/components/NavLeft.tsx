@@ -7,8 +7,7 @@ import { NavItems, navItems } from "@utils/nav";
 import { AppState } from "@store/reducers";
 import _ from "lodash";
 import IgLogo from "@assets/img/logo/maybank_full.png";
-import IcHome from '@assets/img/nav/home.svg?react';
-
+import { ReactComponent as IcHome } from '@assets/img/nav/home.svg';
 
 function usePrevious(value: any) {
   const ref = React.useRef();

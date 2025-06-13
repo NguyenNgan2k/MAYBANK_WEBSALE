@@ -27,6 +27,8 @@
       "@assets/*": ["assets/*"],
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"]
-    }
-  }
+    },
+    "types": ["vite-plugin-svgr/client"]
+  },
+  "include": ["src", "custom.d.ts"]
 }

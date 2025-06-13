@@ -1,8 +1,7 @@
 .nav-left {
   padding: 8px;
   background-color: var(--color-bg-section);
-  border-radius: 20px;
-  height: calc(100vh - 16px);
+  height: 100vh;
 }
 
 .nav-left ul {

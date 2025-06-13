@@ -13,11 +13,10 @@ body {
   background-color: var(--color-bg-body);
   color: var(--color-txt-body);
   font-size: 12px;
-  padding: 8px;
 }
 
 .main {
-  height: calc(100vh - 16px);
+  height: 100vh;
 }
 
 .card {

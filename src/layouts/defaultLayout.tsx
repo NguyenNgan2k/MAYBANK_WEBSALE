@@ -8,7 +8,7 @@ import NavLeft from "@/components/NavLeft";
 const DefaultLayout: React.FC = () => {
   return (
     <div className="app overflow-y-hidden w-full h-full">
-      <div className="app-body w-full h-full grid grid-cols-[180px_calc(100%-188px)] gap-2">
+      <div className="app-body w-full h-full grid grid-cols-[180px_calc(100%-180px)]">
         <NavLeft />
         <main className="main w-full h-full flex flex-col gap-2">
           <DefaultHeader />
