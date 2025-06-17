@@ -1,11 +1,11 @@
 import React from "react";
 
-const DashboardPage: React.FC = () => {
+const CustomersPage: React.FC = () => {
   return (
-    <div className="app overflow-y-hidden h-screen font-poppins text-white">
-      hello
+    <div className="w-full h-full">
+      <div className="text-base">Trang chủ</div>
     </div>
   );
 };
 
-export default DashboardPage;
+export default CustomersPage;

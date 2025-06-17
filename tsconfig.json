@@ -26,7 +26,8 @@
       "@layouts/*": ["layouts/*"],
       "@assets/*": ["assets/*"],
       "@pages/*": ["pages/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@interface/*": ["interface/*"]
     },
     "types": ["vite-plugin-svgr/client"]
   },

@@ -2,12 +2,12 @@ import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, connect } from "react-redux";
 import PerfectScrollBar from "react-perfect-scrollbar";
-import Tooltiped from "@components/Tooltiped";
+import Tooltiped from "@/components/layout/Tooltiped";
 import { NavItems, navItems } from "@utils/nav";
 import { AppState } from "@store/reducers";
 import _ from "lodash";
 import IgLogo from "@assets/img/logo/maybank_full.png";
-import { ReactComponent as IcHome } from '@assets/img/nav/home.svg';
+// import { ReactComponent as IcHome } from '@assets/img/nav/home.svg';
 
 function usePrevious(value: any) {
   const ref = React.useRef();
@@ -49,10 +49,10 @@ function NavLeft(props: Props): JSX.Element {
 
   function getImageByKey(key: string) {
     switch (key) {
-      case "home":
-        return <IcHome className="h-4 w-4" />;
+      // case "home":
+      //   return <IcHome className="h-4 w-4" />;
       default:
-        return <IcHome className="h-4 w-4" />;
+        return <span />;
     }
   }
 

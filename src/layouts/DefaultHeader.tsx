@@ -1,6 +1,6 @@
 import React from "react";
-import Language from "@/components/Language";
-import AccountHeader from "@/components/AccountHeader";
+import Language from "@/components/layout/Language";
+import AccountHeader from "@/components/layout/AccountHeader";
 interface Props {
 }
 const DefaultHeader: React.FunctionComponent<Props> = (props) => {
