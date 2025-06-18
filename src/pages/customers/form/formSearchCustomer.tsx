@@ -1,28 +1,25 @@
-// import { ICustomerSearch } from '@interface/search';
+import { ICustomerSearch } from '@interface/search';
+import Input from '@/components/layout/ui/input/Input';
 import { AppState } from '@store/reducers';
 import React, { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import { connect, useDispatch } from 'react-redux';
 import {
+  Field,
   formValueSelector,
   InjectedFormProps,
   reduxForm
 } from 'redux-form';
 
 interface Props {
-  startDate?: string;
-  endDate?: string;
-}
 
-interface ICustomerSearch {
-  startDate?: string;
-  endDate?: string;
 }
 
 
-const FormSearchCustomer: React.FunctionComponent<
-  InjectedFormProps<ICustomerSearch> & Props
-> = (props) => {
-  const dispatch = useDispatch();
+
+
+const FormSearchCustomer: React.FC = (props) => {
+  const { register, handleSubmit } = useForm<ICustomerSearch>()
 
   useEffect(() => {
     initialValues();
@@ -59,36 +56,28 @@ const FormSearchCustomer: React.FunctionComponent<
     // dispatch(reportCashRequest(params));
   }
 
-  const { handleSubmit } = props;
-
   return (
     <form onSubmit={handleSubmit(submit)} className="col-span-1 ml-auto">
-      <div className="flex flex-row gap-4"></div>
+      <div className="flex flex-row gap-2">
+        <div>
+          <label className="">
+            Mã KH
+          </label>
+          <Input className="" label="First Name" register={register} />
+        </div>
+      </div>
     </form>
   );
 };
 
-const _FormSearchCustomer = reduxForm<ICustomerSearch, Props>({
-  form: 'formSearchCustomer',
-  enableReinitialize: true,
-})(FormSearchCustomer as any);
-
-const selector = formValueSelector('formSearchCustomer');
-
 const makeMapStateToProps = () => {
   const mapStateToProps = (state: AppState) => {
-    const { startDate, endDate } =
-      selector(
-        state,
-        'startDate',
-        'endDate',
-      );
+
     return {
-      startDate,
-      endDate,
+
     };
   };
   return mapStateToProps;
 };
 
-export default connect(makeMapStateToProps)(_FormSearchCustomer);
+export default connect(makeMapStateToProps)(FormSearchCustomer);

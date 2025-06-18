@@ -1,24 +1,29 @@
 import { FunctionComponent, useState } from 'react';
+import { UseFormRegister, Path } from 'react-hook-form';
 
 // import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 
 interface Props {
   input: any;
-  type: string | undefined;
   className: string | undefined;
   placeholder: string | undefined;
-  disabled: boolean | undefined;
+  disabled?: boolean | undefined;
   meta: any;
+  label: Path<any>
+  register: UseFormRegister<any>
+  required: boolean
 }
 
 const RenderFieldInput: FunctionComponent<Props> = (props) => {
   const {
     input,
-    type,
     className,
     disabled,
     placeholder,
     meta: { touched, error },
+    register,
+    label,
+    required
   } = props;
   const [typeInput, setTypeInput] = useState(type);
 
@@ -35,6 +40,7 @@ const RenderFieldInput: FunctionComponent<Props> = (props) => {
           borderColor: `${touched && error ? '#ff5555' : ''}`,
           backgroundColor: `${disabled ? 'var(--color-bg-disable)' : ''}`,
         }}
+        {...register(label, { required })}
       />
       {touched && error && (
         <div
