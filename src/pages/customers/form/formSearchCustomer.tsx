@@ -1,25 +1,17 @@
 import { ICustomerSearch } from '@interface/search';
-import Input from '@/components/layout/ui/input/Input';
+import RenderFieldInput from '@/components/layout/ui/input/Input';
+import Select from '@/components/layout/ui/input/Select';
 import { AppState } from '@store/reducers';
 import React, { useEffect } from 'react';
-import { useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { connect, useDispatch } from 'react-redux';
-import {
-  Field,
-  formValueSelector,
-  InjectedFormProps,
-  reduxForm
-} from 'redux-form';
-
+import { arrCustomerType } from '@/utils/cfg';
 interface Props {
 
 }
 
-
-
-
 const FormSearchCustomer: React.FC = (props) => {
-  const { register, handleSubmit } = useForm<ICustomerSearch>()
+  const { control, handleSubmit } = useForm<ICustomerSearch>()
 
   useEffect(() => {
     initialValues();
@@ -31,8 +23,8 @@ const FormSearchCustomer: React.FC = (props) => {
   function initialValues() {
   }
 
-  function submit() {
-    handleSearch();
+  const onSubmit: SubmitHandler<ICustomerSearch> = (data) => {
+    console.log(data)
   }
 
   function handleSearch() {
@@ -57,13 +49,58 @@ const FormSearchCustomer: React.FC = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="col-span-1 ml-auto">
+    <form onSubmit={handleSubmit(onSubmit)} className="col-span-1 ml-auto">
       <div className="flex flex-row gap-2">
-        <div>
+        <div className='flex gap-1 items-center'>
           <label className="">
             Mã KH
           </label>
-          <Input className="" label="First Name" register={register} />
+          <Controller
+            name="customerCode"
+            control={control}
+            render={({ field }) => (
+              <RenderFieldInput
+                {...field}
+                type="password"
+                className="form-control"
+                placeholder="Enter your password"
+              />
+            )}
+          />
+
+        </div>
+        <div className='flex gap-1 items-center'>
+          <label className="">
+            Số giấy tờ
+          </label>
+          <Controller
+            name="cardId"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => <Input {...field} className='' />}
+          />
+        </div>
+        <div className='flex gap-1 items-center'>
+          <label className="">
+            Tên KH
+          </label>
+          <Controller
+            name="customerName"
+            control={control}
+            rules={{ required: true }}
+            render={({ field }) => <Input {...field} className='' />}
+          />
+        </div>
+        <div className='flex gap-1 items-center'>
+          <label className="">
+            NĐT chuyên nghiệp
+          </label>
+          <Select
+            className=""
+            name="customerType"
+            control={control}
+            opts={arrCustomerType}
+          />
         </div>
       </div>
     </form>
@@ -81,3 +118,4 @@ const makeMapStateToProps = () => {
 };
 
 export default connect(makeMapStateToProps)(FormSearchCustomer);
+

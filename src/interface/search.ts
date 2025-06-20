@@ -1,4 +1,4 @@
 export interface ICustomerSearch {
-  startDate?: string;
-  endDate?: string;
+  customerCode?: string;
+  cardId?: string;
 }

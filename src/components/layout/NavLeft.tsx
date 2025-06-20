@@ -82,7 +82,7 @@ function NavLeft(props: Props): JSX.Element {
 
 
   return (
-    <div className={"nav-left h-full nav_" + typeNav}>
+    <div className={"nav-left h-full border-r nav_" + typeNav}>
       <div className="flex items-center justify-center">
         <img src={IgLogo} className="h-20" />
       </div>

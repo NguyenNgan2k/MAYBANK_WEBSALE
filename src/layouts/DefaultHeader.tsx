@@ -22,7 +22,7 @@ const DefaultHeader: React.FunctionComponent<Props> = (props) => {
   };
 
   return (
-    <header className={"h-14 px-4 flex justify-end bg-section" + (sticky ? " sticky" : "")}>
+    <header className={"h-14 px-4 flex justify-end border-b" + (sticky ? " sticky" : "")}>
       <div className="flex items-center gap-4">
         <Language />
         <div className="h-6 border-l" />
