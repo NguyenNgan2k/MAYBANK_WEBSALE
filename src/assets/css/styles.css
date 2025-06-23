@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Poppins";
-  src: url("../fonts/Poppins-SemiBold.ttf") format("truetype");
+  src: url("../fonts/Poppins-Medium.ttf") format("truetype");
 }
 
 @supports (font-variation-settings: normal) {
@@ -44,6 +44,10 @@ body {
   cursor: pointer;
 }
 
+.dropdown li:not(:last-of-type) {
+  margin-bottom: 2px;
+}
+
 .dropdown li:hover {
   color: var(--color-txt-title);
   background-color: var(--color-bg-dropdown-active);
@@ -56,6 +60,7 @@ body {
   border: 1px solid var(--color-bd-input);
   box-sizing: border-box;
   font-weight: 500;
+  width: 150px;
 }
 
 .form-input:focus {
@@ -68,4 +73,22 @@ body {
   font-size: 12px;
   color: var(--color-white-300);
   text-transform: initial !important;
+}
+
+.table th {
+  box-sizing: border-box;
+  line-height: 16px;
+  white-space: nowrap;
+  padding: 0 8px;
+  background-color: var(--color-bd-td);
+  height: 32px;
+  text-align: center;
+}
+
+.table td {
+  height: 28px;
+  padding: 0 8px;
+  line-height: 16px;
+  border-bottom: 0.5px solid var(--color-bd-td);
+  text-align: center;
 }

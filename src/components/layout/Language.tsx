@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import IconVn from "@assets/img/icon/flag/vn-icon.png"
-import IconEn from "@assets/img/icon/flag/en-icon.png"
+import IconVn from "@assets/img/flag/vn-icon.png"
+import IconEn from "@assets/img/flag/en-icon.png"
 
 
 interface Props {

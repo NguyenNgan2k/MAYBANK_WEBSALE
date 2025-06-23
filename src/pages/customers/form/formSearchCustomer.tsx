@@ -1,11 +1,11 @@
-import { ICustomerSearch } from '@interface/search';
-import RenderFieldInput from '@/components/layout/ui/input/Input';
+import Input from '@/components/layout/ui/input/Input';
 import Select from '@/components/layout/ui/input/Select';
+import { arrCustomerType } from '@/utils/cfg';
+import { ICustomerSearch } from '@interface/search';
 import { AppState } from '@store/reducers';
 import React, { useEffect } from 'react';
-import { Controller, SubmitHandler, useForm } from 'react-hook-form';
-import { connect, useDispatch } from 'react-redux';
-import { arrCustomerType } from '@/utils/cfg';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
 interface Props {
 
 }
@@ -49,46 +49,36 @@ const FormSearchCustomer: React.FC = (props) => {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="col-span-1 ml-auto">
+    <form onSubmit={handleSubmit(onSubmit)} className="">
       <div className="flex flex-row gap-2">
         <div className='flex gap-1 items-center'>
           <label className="">
             Mã KH
           </label>
-          <Controller
+          <Input
             name="customerCode"
             control={control}
-            render={({ field }) => (
-              <RenderFieldInput
-                {...field}
-                type="password"
-                className="form-control"
-                placeholder="Enter your password"
-              />
-            )}
+            placeholder="Nhập mã KH"
           />
-
         </div>
         <div className='flex gap-1 items-center'>
           <label className="">
             Số giấy tờ
           </label>
-          <Controller
+          <Input
             name="cardId"
             control={control}
-            rules={{ required: true }}
-            render={({ field }) => <Input {...field} className='' />}
+            placeholder="Nhập số giấy tờ"
           />
         </div>
         <div className='flex gap-1 items-center'>
           <label className="">
             Tên KH
           </label>
-          <Controller
+          <Input
             name="customerName"
             control={control}
-            rules={{ required: true }}
-            render={({ field }) => <Input {...field} className='' />}
+            placeholder="Nhập tên KH"
           />
         </div>
         <div className='flex gap-1 items-center'>
@@ -96,7 +86,6 @@ const FormSearchCustomer: React.FC = (props) => {
             NĐT chuyên nghiệp
           </label>
           <Select
-            className=""
             name="customerType"
             control={control}
             opts={arrCustomerType}

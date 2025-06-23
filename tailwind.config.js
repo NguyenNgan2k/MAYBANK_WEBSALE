@@ -17,8 +17,11 @@ module.exports = {
         primary: "var(--color-bg-primary)",
         section: "var(--color-bg-section)",
         secondary: "var(--color-bg-secondary)",
+        "dropdown-active": "var(--color-bg-dropdown-active)",
       },
-      borderColor: {},
+      borderColor: {
+        error: "var(--color-bd-error)",
+      },
     },
   },
   plugins: [],

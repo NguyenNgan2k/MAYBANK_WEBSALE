@@ -22,12 +22,14 @@
   color: var(--color-text-primary);
   background: var(--color-bg-secondary);
   border-radius: 1000px;
+  font-weight: 600;
 }
 
 .nav-left ul li.active a {
   color: var(--color-text-primary);
   background: var(--color-bg-secondary);
   border-radius: 1000px;
+  font-weight: 600;
 }
 
 .nav-left ul li:hover a img svg {
