@@ -20,14 +20,14 @@
 
 .nav-left ul li:hover a {
   color: var(--color-text-primary);
-  background: var(--color-bg-secondary);
+  background: var(--color-bg-primary);
   border-radius: 1000px;
   font-weight: 600;
 }
 
 .nav-left ul li.active a {
   color: var(--color-text-primary);
-  background: var(--color-bg-secondary);
+  background: var(--color-bg-primary);
   border-radius: 1000px;
   font-weight: 600;
 }

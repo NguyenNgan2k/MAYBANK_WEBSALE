@@ -6,15 +6,20 @@
     --color-txt-body: #000000;
     --color-txt-title: #000000;
     --color-txt-subtitle: #595959;
+    --color-txt-white: #fff;
     --color-txt-primary: #ffc600;
+    --color-txt-violet: #e683ff;
+    --color-txt-green: #00f4b0;
 
-    --color-bg-body: #f2f2f2;
+    --color-bg-body: #f6f8fa;
     --color-bg-primary: #ffc600;
     --color-bg-secondary: #fee187;
+    --color-bg-green: #00f4b0;
     --color-bg-section: #fff;
     --color-bg-dropdown: #fff;
     --color-bg-dropdown: #fff;
     --color-bg-dropdown-active: #fee187;
+    --color-bg-table: #f6f8fa;
 
     --color-bd-input: #d9d9d9;
     --color-bd-td: #d9d9d9;

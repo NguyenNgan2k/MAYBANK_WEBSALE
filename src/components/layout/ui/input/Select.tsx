@@ -111,7 +111,7 @@ const RenderNormalSelect: React.FC<Props> = ({
         )}
         <img src={IcArrowDown}
           className={
-            ' w-4 h-4 cursor-pointer absolute right-2 top-1/2 -translate-y-1/2' +
+            'w-4 h-4 cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 ' +
             (showSelect ? 'rotate-180' : '')
           }
         />

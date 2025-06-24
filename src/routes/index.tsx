@@ -5,6 +5,7 @@ import DefaultLayout from "@/layouts/DefaultLayout";
 // const Login = React.lazy(() => import("@containers/login"));
 const DashboardPage = React.lazy(() => import("@pages/dashboard/index"));
 const CustomersPage = React.lazy(() => import("@pages/customers/index"));
+const OrdersPage = React.lazy(() => import("@pages/orders/index"));
 interface PrivateRouteProps {
   children: JSX.Element;
 }
@@ -37,7 +38,16 @@ const AppRoutes: React.FC = () => {
             </PrivateRoute>
           }
         />
+        <Route
+          path="/orders"
+          element={
+            <PrivateRoute>
+              <OrdersPage />
+            </PrivateRoute>
+          }
+        />
       </Route>
+
       <Route path="/" element={<Navigate to="/login" replace />} />
     </Routes>
   );

@@ -2,7 +2,7 @@ import Input from '@/components/layout/ui/input/Input';
 import Select from '@/components/layout/ui/input/Select';
 import { arrCustomerType } from '@/utils/cfg';
 import { BtnSubmit } from '@/utils/styledUtils';
-import { ICustomerSearch } from '@interface/search';
+import { IRetailDisSearch } from '@interface/search';
 import { AppState } from '@store/reducers';
 import React, { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -11,8 +11,8 @@ interface Props {
 
 }
 
-const FormSearchCustomer: React.FC = (props) => {
-  const { control, handleSubmit } = useForm<ICustomerSearch>()
+const FormSearchRetailDis: React.FC = (props) => {
+  const { control, handleSubmit } = useForm<IRetailDisSearch>()
 
   useEffect(() => {
     initialValues();
@@ -24,7 +24,7 @@ const FormSearchCustomer: React.FC = (props) => {
   function initialValues() {
   }
 
-  const onSubmit: SubmitHandler<ICustomerSearch> = (data) => {
+  const onSubmit: SubmitHandler<IRetailDisSearch> = (data) => {
     console.log(data)
   }
 
@@ -54,42 +54,22 @@ const FormSearchCustomer: React.FC = (props) => {
       <div className="flex flex-row gap-2">
         <div className='flex gap-1 items-center'>
           <label className="">
-            Mã KH
+            Mã trái phiếu
           </label>
           <Input
             name="customerCode"
             control={control}
-            placeholder="Nhập mã KH"
+            placeholder="Nhập mã TP"
           />
         </div>
         <div className='flex gap-1 items-center'>
           <label className="">
-            Số giấy tờ
+            Tổ chức phát hành
           </label>
           <Input
             name="cardId"
             control={control}
-            placeholder="Nhập số giấy tờ"
-          />
-        </div>
-        <div className='flex gap-1 items-center'>
-          <label className="">
-            Tên KH
-          </label>
-          <Input
-            name="customerName"
-            control={control}
-            placeholder="Nhập tên KH"
-          />
-        </div>
-        <div className='flex gap-1 items-center'>
-          <label className="">
-            NĐT chuyên nghiệp
-          </label>
-          <Select
-            name="customerType"
-            control={control}
-            opts={arrCustomerType}
+            placeholder="Nhập TCPH"
           />
         </div>
       </div>
@@ -108,5 +88,5 @@ const makeMapStateToProps = () => {
   return mapStateToProps;
 };
 
-export default connect(makeMapStateToProps)(FormSearchCustomer);
+export default connect(makeMapStateToProps)(FormSearchRetailDis);
 

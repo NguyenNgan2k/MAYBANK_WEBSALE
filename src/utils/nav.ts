@@ -33,14 +33,14 @@ export const navItems: NavItems[] = [
   },
   {
     name: "Hợp đồng",
-    url: "/orders",
-    icon: "orders",
+    url: "/contracts",
+    icon: "contracts",
     right: ["ALL"],
   },
   {
     name: "Tiện ích",
-    url: "/orders",
-    icon: "orders",
+    url: "/extensions",
+    icon: "extensions",
     right: ["ALL"],
   },
 ];

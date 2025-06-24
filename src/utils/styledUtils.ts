@@ -4,10 +4,9 @@ const ButtonDef = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 12px;
-  font-size: 14px;
-  height: 38px;
-  padding: 0 12px;
+  border-radius: 6px;
+  height: 28px;
+  padding: 0 8px;
 `;
 
 export const BtnClose = styled(ButtonDef)`
@@ -26,9 +25,8 @@ export const BtnClose = styled(ButtonDef)`
 `;
 
 export const BtnSubmit = styled(ButtonDef)`
-  background: var(--color-natural-4);
+  background: var(--color-bg-primary);
   min-width: 100px;
-  color: var(--color-text-white);
   font-weight: 600;
 
   &.danger {
@@ -52,5 +50,59 @@ export const BtnSubmit = styled(ButtonDef)`
   &:disabled {
     background: var(--color-white-700);
     color: var(--color-text-subtitle);
+  }
+`;
+
+export const BtnSell = styled.span`
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &.yellow {
+    width: 50px;
+    height: 20px;
+    background: var(--color-bg-primary);
+  }
+  &.green {
+    width: 50px;
+    height: 20px;
+    background: var(--color-bg-green);
+  }
+  &.yellow-mini {
+    width: 30px;
+    height: 15px;
+    font-size: 10px;
+    background: var(--color-bg-primary);
+  }
+  &.green-mini {
+    width: 30px;
+    height: 15px;
+    font-size: 10px;
+    background: var(--color-bg-green);
+  }
+`;
+
+export const Tag = styled.span`
+  border: 1px solid var(--color-bg-primary);
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  &.niem-yet {
+    width: 45px;
+    border: 1px solid var(--color-txt-primary);
+    color: var(--color-txt-primary);
+  }
+  &.tsdb {
+    width: 45px;
+    border: 1px solid var(--color-txt-violet);
+    color: var(--color-txt-violet);
+  }
+  &.bao-lanh {
+    width: 70px;
+    border: 1px solid var(--color-txt-green);
+    color: var(--color-txt-green);
   }
 `;

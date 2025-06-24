@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Poppins";
-  src: url("../fonts/Poppins-Medium.ttf") format("truetype");
+  font-family: "Plus Jakarta Sans";
+  src: url("../fonts/PlusJakartaSans-Medium.ttf") format("truetype");
 }
 
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: "Poppins", sans-serif;
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
 }
 
@@ -55,7 +55,7 @@ body {
 
 .form-input {
   height: 28px;
-  border-radius: 4px;
+  border-radius: 6px;
   padding: 0px 8px;
   border: 1px solid var(--color-bd-input);
   box-sizing: border-box;
@@ -80,7 +80,7 @@ body {
   line-height: 16px;
   white-space: nowrap;
   padding: 0 8px;
-  background-color: var(--color-bd-td);
+  background-color: var(--color-bg-table);
   height: 32px;
   text-align: center;
 }
@@ -91,4 +91,22 @@ body {
   line-height: 16px;
   border-bottom: 0.5px solid var(--color-bd-td);
   text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tag-pro {
+  width: 30px;
+  height: 15px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 8px;
+  background: var(--color-bg-primary);
+  margin-left: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

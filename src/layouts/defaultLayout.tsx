@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Loading from "@/components/layout/Loading";
 import DefaultHeader from "./DefaultHeader";
+import DefaultFooter from "./DefaultFooter";
 import NavLeft from "@/components/layout/NavLeft";
 
 const DefaultLayout: React.FC = () => {
@@ -17,6 +18,7 @@ const DefaultLayout: React.FC = () => {
               <Outlet />
             </div>
           </Suspense>
+          <DefaultFooter />
         </main>
       </div>
       <ToastContainer />
