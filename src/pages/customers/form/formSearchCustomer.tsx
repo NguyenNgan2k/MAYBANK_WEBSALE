@@ -1,5 +1,5 @@
-import Input from '@/components/layout/ui/input/Input';
-import Select from '@/components/layout/ui/input/Select';
+import Input from '@/components/layout/input/Input';
+import Select from '@/components/layout/input/Select';
 import { arrCustomerType } from '@/utils/cfg';
 import { BtnSubmit } from '@/utils/styledUtils';
 import { ICustomerSearch } from '@interface/search';
