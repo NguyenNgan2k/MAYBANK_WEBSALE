@@ -6,3 +6,10 @@ export function setSymbolActive(data: any): actions.SetSymbolActiveAction {
     data,
   };
 }
+
+export function setDblPrice(data: any): actions.SetDblPriceAction {
+  return {
+    type: actions.DBL_PRICE_SET,
+    data,
+  };
+}

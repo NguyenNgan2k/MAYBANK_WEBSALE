@@ -27,9 +27,6 @@ function BondSuggest(props: Props): JSX.Element {
   const [indexActive, setIndexActive] = React.useState<number>(-1);
   const [selected, setSelected] = React.useState<boolean>(false);
 
-  const [keyPressed, setKeyPressed] = React.useState(false);
-  const timeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
-
   const { dataSuggest, addBond, className, placeholder, input } = props;
 
   const preIndexActive = usePrevious(indexActive);
@@ -55,25 +52,6 @@ function BondSuggest(props: Props): JSX.Element {
       }
     }
   }, [indexActive]);
-
-  React.useEffect(() => {
-    if (!keyPressed) return;
-    const handleMouseMove = (event: any) => {
-      if (
-        wrapperRef &&
-        wrapperRef.current &&
-        wrapperRef.current?.contains(event.target)
-      ) {
-        setKeyPressed(false);
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-    };
-  }, [keyPressed]);
 
   React.useEffect(() => {
     if (input?.value && !_.isEqual(input?.value, preInputValue)) {
@@ -133,7 +111,6 @@ function BondSuggest(props: Props): JSX.Element {
     }
     if (event.key === 'ArrowDown') {
       event.preventDefault();
-      setKeyPressed(true);
       if (indexActive === suggestions.length - 1) {
         setIndexActive(0);
       } else if (indexActive <= suggestions.length - 1)
@@ -141,7 +118,6 @@ function BondSuggest(props: Props): JSX.Element {
     }
     if (event.key === 'ArrowUp') {
       event.preventDefault();
-      setKeyPressed(true);
       if (indexActive > 0) setIndexActive(indexActive - 1);
     }
   }
@@ -166,34 +142,15 @@ function BondSuggest(props: Props): JSX.Element {
     setIndexActive(0);
   }
 
-  const handleMouseMove = (index: number) => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      if (!keyPressed) setIndexActive(-1);
-    }
-
-    timeoutRef.current = setTimeout(() => {
-      if (!keyPressed) {
-        setIndexActive(index);
-      }
-    }, 200);
-  };
-
-  const handleMouseLeave = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-  };
-
   return (
     <div
       {...input}
       ref={wrapperRef}
       className={
-        'min-w-[160px] h-9 px-3 py-2 rounded-full bg-skin-input flex relative ' + className
+        'form-search flex items-center relative ' + className
       }
     >
-      <img src={IcSearch} className="w-5 h-5 mr-2" />
+      <img src={IcSearch} className="w-4 h-4 mr-2" />
       <input
         ref={inputRef}
         value={textSearch}
@@ -203,7 +160,7 @@ function BondSuggest(props: Props): JSX.Element {
         }}
         type={'text'}
         placeholder={placeholder}
-        className="form-input"
+        className="input-search"
         autoComplete="off"
         onKeyDown={handleKeyDown}
         onClick={() => {
@@ -212,7 +169,7 @@ function BondSuggest(props: Props): JSX.Element {
         }}
       />
       {showModal && (
-        <div className="dropdown w-full absolute top-9 left-0 z-10">
+        <div className="dropdown w-[300px] absolute top-9 left-0 z-10">
           <PerfectScrollBar className="w-full max-h-[360px] 2xl:max-h-[476px]">
             <ul>
               {suggestions &&
@@ -221,26 +178,24 @@ function BondSuggest(props: Props): JSX.Element {
                   <li
                     key={index}
                     className={
-                      `group w-[328px] flex items-center hover:${!keyPressed ? 'bg-dropdown-active' : ''} ` +
+                      `group flex items-center ` +
                       (indexActive === index ? 'active' : '')
                     }
                     onClick={() => handleSelect(item)}
-                    onMouseMove={() => handleMouseMove(index)}
-                    onMouseLeave={handleMouseLeave}
                     id={indexActive === index ? 'active-select' : ''}
                   >
                     <span
-                      className={`font-bold group-hover:${!keyPressed ? '!text-skin-mint900' : ''}`}
+                      className='font-bold'
                     >
                       {item?.bond_code}
                     </span>
                     <span
-                      className={`mx-1 text-subdued group-hover:${!keyPressed ? '!text-skin-mint900' : ''}`}
+                      className='mx-1'
                     >
                       -
                     </span>
                     <span
-                      className={`truncate font-medium text-subdued group-hover:${!keyPressed ? '!text-skin-mint900' : ''}`}
+                      className={`truncate font-medium`}
                     >{`${item?.bond_issuer}`}</span>
                   </li>
                 ))}

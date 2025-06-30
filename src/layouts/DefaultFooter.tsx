@@ -2,26 +2,27 @@ import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import * as _ from 'lodash';
 import { AppState } from '@/store/reducers';
-
-import PanelStockDetail from '@pages/orders/panel/bondDetail';
 import { setSymbolActive } from '@/store/client/actions';
 import { usePrevious } from '@/components/hooks';
 
+import PanelBondDetail from '@pages/orders/panel/bondDetail';
+import PanelTrade from '@pages/orders/panel/PanelTrade';
 interface Props {
   symbolActive?: any;
-
+  dblPri?: string
 }
 
 const DefaultFooter: React.FunctionComponent<Props> = (props) => {
   const {
     symbolActive,
+    dblPri
 
   } = props;
   const preSymbolActive = usePrevious(symbolActive);
   const dispatch = useDispatch();
   const [showModal, setShowModal] = React.useState<boolean>(false);
-
-
+  const [toggleTrade, setToggleTrade] = React.useState<boolean>(false);
+  const preDblPri = usePrevious(dblPri);
 
   React.useEffect(() => {
     if (symbolActive && !_.isEqual(symbolActive, preSymbolActive)) {
@@ -30,9 +31,21 @@ const DefaultFooter: React.FunctionComponent<Props> = (props) => {
   }, [symbolActive]);
 
 
+  React.useEffect(() => {
+    if (dblPri &&
+      !_.isEqual(dblPri, preDblPri)
+    ) {
+      setToggleTrade(true);
+    }
+  }, [dblPri]);
+
   function _handleCloseModal() {
     setShowModal(false);
     dispatch(setSymbolActive(''));
+  }
+
+  function _handleClosePanelTrade() {
+    setToggleTrade(false);
   }
 
 
@@ -43,8 +56,9 @@ const DefaultFooter: React.FunctionComponent<Props> = (props) => {
         thuộc về Công ty cổ phần Chứng khoán XTCS © 2024
       </footer> */}
       {showModal && (
-        <PanelStockDetail onClose={_handleCloseModal} symbol={symbolActive} />
+        <PanelBondDetail onClose={_handleCloseModal} symbol={symbolActive} />
       )}
+      {toggleTrade && <PanelTrade onClose={_handleClosePanelTrade} />}
     </>
   );
 };
@@ -53,6 +67,7 @@ const makeMapStateToProps = () => {
   const mapStateToProps = (state: AppState) => {
     return {
       symbolActive: state.client.symbolActive,
+      dblPri: state.client.dblPri,
     };
   };
   return mapStateToProps;

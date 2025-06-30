@@ -53,6 +53,11 @@ body {
   background-color: var(--color-bg-dropdown-active);
 }
 
+.dropdown li.active {
+  color: var(--color-txt-title);
+  background-color: var(--color-bg-dropdown-active);
+}
+
 .form-input {
   height: 28px;
   border-radius: 6px;
@@ -73,6 +78,21 @@ body {
   font-size: 12px;
   color: var(--color-white-300);
   text-transform: initial !important;
+}
+
+.form-search {
+  height: 28px;
+  border-radius: 6px;
+  padding: 0px 8px;
+  border: 1px solid var(--color-bd-input);
+  box-sizing: border-box;
+  font-weight: 500;
+}
+
+.input-search:focus {
+  box-shadow: none;
+  outline: none;
+  border: none;
 }
 
 .table th {

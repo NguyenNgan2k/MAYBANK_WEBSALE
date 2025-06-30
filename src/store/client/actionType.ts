@@ -4,4 +4,10 @@ export interface SetSymbolActiveAction {
   data: any;
 }
 
+export const DBL_PRICE_SET = "DBL_PRICE_SET";
+export interface SetDblPriceAction {
+  type: typeof DBL_PRICE_SET;
+  data: any;
+}
+
 export type ClientAction = SetSymbolActiveAction;

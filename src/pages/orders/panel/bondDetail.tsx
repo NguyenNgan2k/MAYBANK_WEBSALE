@@ -5,11 +5,11 @@ import Modal from '@components/layout/Modal'
 import { allBonds } from '@/utils/cfg';
 import BondSuggest from '@/components/layout/input/BondSuggest';
 import { BtnSubmit } from '@/utils/styledUtils';
+import { setDblPrice } from '@/store/client/actions';
 interface Props {
   onClose: Function;
   symbol: string;
 }
-
 
 function usePrevious(value: any) {
   const ref = React.useRef();
@@ -47,13 +47,17 @@ function PanelStockDetail(props: Props) {
   return (
     <Modal onClose={() => onClose()}>
       <div className='flex flex-col h-[700px] w-[1000px] gap-4'>
-        <div className='flex justify-between'>
+        <div className='flex justify-between items-center'>
           <BondSuggest
             dataSuggest={allBonds || []}
             addBond={_handleAddStock}
             placeholder="Tìm kiếm mã TP"
           />
-          <BtnSubmit>Đặt lênh</BtnSubmit>
+          <BtnSubmit
+            onClick={() =>
+              dispatch(setDblPrice('VIC12502'))
+            }
+          >Đặt lệnh</BtnSubmit>
         </div>
         <div className='flex'>
           <div className='w-1/2 flex flex-col gap-4'>

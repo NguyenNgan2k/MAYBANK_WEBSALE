@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import FormSearchRetailDis from "../form/formSearchRetailDis";
 import { BtnSell, Tag } from "@/utils/styledUtils";
 import { useDispatch } from "react-redux";
-import { setSymbolActive } from "@/store/client/actions";
+import { setDblPrice, setSymbolActive } from "@/store/client/actions";
 
 const RetailDistribution: React.FC = () => {
   const dispatch = useDispatch()
+
+
   return (
     <div className="flex flex-col gap-4">
       <FormSearchRetailDis />
@@ -47,7 +49,11 @@ const RetailDistribution: React.FC = () => {
               <td className="">200,001</td>
               <td className="border-r">
                 <span className="flex-center ">
-                  <BtnSell className="yellow">Mua</BtnSell>
+                  <BtnSell className="yellow cursor-pointer"
+                    onClick={() =>
+                      dispatch(setDblPrice('VIC12502'))
+                    }
+                  >Mua</BtnSell>
                 </span>
               </td>
               <td>12/06/2028</td>
@@ -77,7 +83,13 @@ const RetailDistribution: React.FC = () => {
               <td className="">200,000</td>
               <td className="border-r">
                 <span className="flex-center">
-                  <BtnSell className="green">Mua</BtnSell>
+                  <BtnSell className="green cursor-pointer"
+                    onClick={() =>
+                      dispatch(setDblPrice('HDRCB2426003'))
+                    }
+                  >
+                    Mua
+                  </BtnSell>
                 </span>
               </td>
               <td>26/01/2026</td>

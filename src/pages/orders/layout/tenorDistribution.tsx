@@ -1,8 +1,18 @@
 import React, { useState } from "react";
 import FormSearchRetailDis from "../form/formSearchRetailDis";
 import { BtnSell, Tag } from "@/utils/styledUtils";
+import { setDblPrice } from "@/store/client/actions";
+import { useDispatch } from "react-redux";
 
 const TenorDistribution: React.FC = () => {
+  const dispatch = useDispatch()
+  const _handleTradeSym = (sym = '') => {
+    const newOrder = {
+      symbol: sym,
+    };
+    dispatch(setDblPrice(newOrder));
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <FormSearchRetailDis />
@@ -39,7 +49,13 @@ const TenorDistribution: React.FC = () => {
               <td className="">200,001</td>
               <td className="border-r">
                 <span className="flex-center ">
-                  <BtnSell className="yellow">Mua</BtnSell>
+                  <BtnSell className="yellow cursor-pointer"
+                    onClick={() =>
+                      dispatch(setDblPrice('VIC12502'))
+                    }
+                  >
+                    Mua
+                  </BtnSell>
                 </span>
               </td>
               <td>12/06/2028</td>
@@ -68,7 +84,13 @@ const TenorDistribution: React.FC = () => {
               <td className="">200,000</td>
               <td className="border-r">
                 <span className="flex-center ">
-                  <BtnSell className="green">Mua</BtnSell>
+                  <BtnSell className="green cursor-pointer"
+                    onClick={() =>
+                      _handleTradeSym('HDRCB2426003')
+                    }
+                  >
+                    Mua
+                  </BtnSell>
                 </span>
               </td>
               <td>26/01/2026</td>
@@ -82,15 +104,15 @@ const TenorDistribution: React.FC = () => {
       </div>
       <div className=" h-7 bg-table flex items-center gap-4 px-2">
         <div className="flex gap-2">
-          <BtnSell className="green-mini">Mua</BtnSell>
+          <BtnSell className="green-mini cursor-pointer">Mua</BtnSell>
           Cho tất cả NĐT
         </div>
         <div className="flex gap-2">
-          <BtnSell className="yellow-mini">Mua</BtnSell>
+          <BtnSell className="yellow-mini cursor-pointer">Mua</BtnSell>
           Cho NĐT chuyên nghiệp
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 
