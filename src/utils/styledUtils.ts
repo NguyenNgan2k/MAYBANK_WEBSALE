@@ -10,17 +10,11 @@ const ButtonDef = styled.button`
 `;
 
 export const BtnClose = styled(ButtonDef)`
-  background: var(--color-bg-card);
-  min-width: 75px;
-  color: var(--color-text-error);
-  font-weight: 500;
-  border: 1px solid var(--color-bd-input-error);
+  background: var(--color-bg-disable);
+  min-width: 100px;
+  font-weight: 600;
   &.disabled {
     border: none;
-  }
-  &.blue {
-    border: 1px solid var(--color-border-input);
-    color: var(--color-text-subtitle);
   }
 `;
 

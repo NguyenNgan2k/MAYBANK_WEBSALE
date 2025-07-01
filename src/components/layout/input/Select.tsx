@@ -76,15 +76,14 @@ const RenderNormalSelect: React.FC<Props> = ({
       <div
         className={
           'relative ' +
-          className +
           (isTouched && error ? ' border border-error' : '')
         }
         ref={showRef}
       >
         <div
           className={
-            'form-input w-full h-full cursor-pointer flex items-center ' +
-            (!field.value && 'text-subtitle')
+            className + ' form-input w-full h-full cursor-pointer flex items-center ' +
+            (!field.value && '!text-subtitle')
           }
           onClick={() => setShowSelect(!showSelect)}
         >

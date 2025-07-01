@@ -75,8 +75,7 @@ body {
 }
 
 .form-input::placeholder {
-  font-size: 12px;
-  color: var(--color-white-300);
+  color: var(--color-txt-subtitle) !important;
   text-transform: initial !important;
 }
 
