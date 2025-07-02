@@ -1,24 +1,35 @@
 import * as _ from 'lodash';
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import PerfectScrollBar from 'react-perfect-scrollbar';
 
 import { IAllBonds } from '@/interface';
 import IcSearch from '@assets/img/icon/search.svg';
 import { usePrevious } from '@/components/hooks';
+import { useController, UseControllerProps } from 'react-hook-form';
 
 function escapeRegexCharacters(str: string) {
   return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-interface Props {
+interface ExtraProps {
   dataSuggest: IAllBonds[];
   placeholder: string;
   className?: string;
-  input?: any
-  name: string
 }
 
-function SelectBond(props: Props): JSX.Element {
+type Props = ExtraProps & UseControllerProps;
+
+const SelectBond: FunctionComponent<Props> = ({
+  dataSuggest,
+  className,
+  placeholder,
+  ...controllerProps
+}) => {
+  const {
+    field,
+    fieldState: { error, isTouched },
+  } = useController(controllerProps);
+
   const wrapperRef = React.useRef<any>(null);
   const inputRef = React.useRef<any>(null);
   const [showModal, setShowModal] = React.useState<boolean>(false);
@@ -27,12 +38,8 @@ function SelectBond(props: Props): JSX.Element {
   const [indexActive, setIndexActive] = React.useState<number>(-1);
   const [selected, setSelected] = React.useState<boolean>(false);
 
-  const { dataSuggest, className, placeholder, input, name } = props;
-
   const preIndexActive = usePrevious(indexActive);
-  const preInputValue = usePrevious(input?.value);
-
-  console.log(input)
+  const preInputValue = usePrevious(field?.value);
 
   React.useEffect(() => {
     window.addEventListener('mousedown', handleClickOutside);
@@ -54,17 +61,17 @@ function SelectBond(props: Props): JSX.Element {
   }, [indexActive]);
 
   React.useEffect(() => {
-    if (input?.value && !_.isEqual(input?.value, preInputValue)) {
+    if (field?.value && !_.isEqual(field?.value, preInputValue)) {
       setSelected(true);
-      setTextSearch(input?.value);
-      getSuggestions(input?.value);
+      setTextSearch(field?.value);
+      getSuggestions(field?.value);
     }
-  }, [input?.value]);
+  }, [field?.value]);
 
   React.useEffect(() => {
     if (selected) return;
     // remove old data
-    input?.onChange('');
+    field?.onChange('');
 
     if (textSearch) {
       setShowModal(true);
@@ -95,7 +102,7 @@ function SelectBond(props: Props): JSX.Element {
           const find = _.find(suggestions, (o) => o?.bond_code === textSearch);
           if (find) {
             setTextSearch(find?.bond_code);
-            input.onChange(find?.bond_code);
+            field.onChange(find?.bond_code);
             setShowModal(false);
           }
         } else {
@@ -103,7 +110,7 @@ function SelectBond(props: Props): JSX.Element {
           const _record = suggestions[indexActive];
           if (_record) {
             setTextSearch(_record?.bond_code);
-            input.onChange(_record?.bond_code);
+            field.onChange(_record?.bond_code);
             setShowModal(false);
           }
         }
@@ -124,7 +131,7 @@ function SelectBond(props: Props): JSX.Element {
   function handleSelect(record: IAllBonds) {
     setSelected(true);
     setTextSearch(record?.bond_code);
-    input.onChange(record?.bond_code);
+    field.onChange(record?.bond_code);
     setShowModal(false);
   }
 
@@ -143,7 +150,6 @@ function SelectBond(props: Props): JSX.Element {
 
   return (
     <div
-      {...input}
       ref={wrapperRef}
       className={
         'form-search flex items-center relative ' + className
@@ -151,7 +157,7 @@ function SelectBond(props: Props): JSX.Element {
     >
       <img src={IcSearch} className="w-4 h-4 mr-2" />
       <input
-        name={name}
+        {...field}
         ref={inputRef}
         value={textSearch}
         onChange={(e) => {

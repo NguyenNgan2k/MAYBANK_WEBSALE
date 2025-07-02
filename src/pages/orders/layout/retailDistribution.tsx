@@ -11,7 +11,7 @@ const RetailDistribution: React.FC = () => {
   return (
     <div className="flex flex-col gap-4">
       <FormSearchRetailDis />
-      <div className="h-[calc(100vh-296px)]">
+      <div className="">
         <table className="table w-full">
           <thead>
             <tr>

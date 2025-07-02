@@ -32,6 +32,12 @@ export const navItems: NavItems[] = [
     right: ["ALL"],
   },
   {
+    name: "Sổ lệnh",
+    url: "/order-book",
+    icon: "order-book",
+    right: ["ALL"],
+  },
+  {
     name: "Hợp đồng",
     url: "/contracts",
     icon: "contracts",

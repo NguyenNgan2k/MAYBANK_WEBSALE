@@ -12,6 +12,7 @@ module.exports = {
         white: "var(--color-txt-white)",
         green: "var(--color-txt-green)",
         violet: "var(--color-txt-violet)",
+        red: "var(--color-txt-red)",
       },
       backgroundColor: {
         primary: "var(--color-bg-primary)",

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect, useDispatch } from 'react-redux';
 import * as _ from 'lodash';
 import { AppState } from '@/store/reducers';
-import { setSymbolActive } from '@/store/client/actions';
+import { setDblPrice, setSymbolActive } from '@/store/client/actions';
 import { usePrevious } from '@/components/hooks';
 
 import PanelBondDetail from '@pages/orders/panel/bondDetail';
@@ -36,6 +36,7 @@ const DefaultFooter: React.FunctionComponent<Props> = (props) => {
       !_.isEqual(dblPri, preDblPri)
     ) {
       setToggleTrade(true);
+      showModal && _handleCloseModal();
     }
   }, [dblPri]);
 
@@ -46,6 +47,7 @@ const DefaultFooter: React.FunctionComponent<Props> = (props) => {
 
   function _handleClosePanelTrade() {
     setToggleTrade(false);
+    dispatch(setDblPrice(''));
   }
 
 

@@ -6,6 +6,8 @@ import DefaultLayout from "@/layouts/DefaultLayout";
 const DashboardPage = React.lazy(() => import("@pages/dashboard/index"));
 const CustomersPage = React.lazy(() => import("@pages/customers/index"));
 const OrdersPage = React.lazy(() => import("@pages/orders/index"));
+const OrderBookPage = React.lazy(() => import("@pages/orderBook/index"));
+const ContractsPage = React.lazy(() => import("@pages/contracts/index"));
 interface PrivateRouteProps {
   children: JSX.Element;
 }
@@ -20,7 +22,6 @@ const AppRoutes: React.FC = () => {
   return (
     <Routes>
       {/* <Route path="/login" element={<Login />} /> */}
-
       <Route element={<DefaultLayout />}>
         <Route
           path="/home"
@@ -43,6 +44,22 @@ const AppRoutes: React.FC = () => {
           element={
             <PrivateRoute>
               <OrdersPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/order-book"
+          element={
+            <PrivateRoute>
+              <OrderBookPage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/contracts"
+          element={
+            <PrivateRoute>
+              <ContractsPage />
             </PrivateRoute>
           }
         />

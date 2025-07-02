@@ -1,4 +1,4 @@
-import { arrPayMethod } from '@/utils/cfg';
+import { allBonds, arrPayMethod } from '@/utils/cfg';
 import { BtnClose, BtnSubmit } from '@/utils/styledUtils';
 import { IRetailDisSearch } from '@interface/search';
 import { AppState } from '@store/reducers';
@@ -60,10 +60,11 @@ const FormOrder: React.FC = (props) => {
             Mã trái phiếu
           </label>
           <SelectBond
-            name="customerCode"
+            name="bondCode"
             control={control}
-            placeholder="Nhập mã TP"
+            placeholder="Nhập mã trái phiếu"
             className='!w-56'
+            dataSuggest={allBonds || []}
           />
         </div>
         <div className='rounded-t-md'>
