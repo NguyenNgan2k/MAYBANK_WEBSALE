@@ -1,5 +1,6 @@
 import React from "react";
 import FormSearchCustomer from "./form/formSearchCustomer";
+import IcCheck from '@assets/img/icon/check.svg'
 
 const CustomersPage: React.FC = () => {
   return (
@@ -35,8 +36,16 @@ const CustomersPage: React.FC = () => {
               <td>0352160205</td>
               <td></td>
               <td>521</td>
-              <td></td>
-              <td></td>
+              <td>
+                <span className="flex justify-center">
+                  <img src={IcCheck} className="w-5 h-5" />
+                </span>
+              </td>
+              <td>
+                <span className="flex justify-center">
+                  <img src={IcCheck} className="w-5 h-5" />
+                </span>
+              </td>
               <td className="text-primary cursor-pointer underline">Chi tiết</td>
             </tr>
           </tbody>

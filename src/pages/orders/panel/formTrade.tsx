@@ -6,10 +6,10 @@ import React, { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
 
-import Input from '@/components/layout/input/Input';
-import Select from '@/components/layout/input/Select';
-import InputMask from '@/components/layout/input/InputMask';
-import SelectBond from '@/components/layout/input/SelectBond';
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
+import InputMask from '@/components/ui/InputMask';
+import SelectBond from '@/components/ui/SelectBond';
 interface Props {
 
 }

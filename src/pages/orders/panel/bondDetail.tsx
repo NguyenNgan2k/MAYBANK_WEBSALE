@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router';
 import Modal from '@components/layout/Modal'
 import { allBonds } from '@/utils/cfg';
-import BondSuggest from '@/components/layout/input/BondSuggest';
+import BondSuggest from '@/components/ui/BondSuggest';
 import { BtnSubmit } from '@/utils/styledUtils';
 import { setDblPrice } from '@/store/client/actions';
 interface Props {

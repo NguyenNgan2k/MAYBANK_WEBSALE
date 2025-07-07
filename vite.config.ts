@@ -15,6 +15,7 @@ export default defineConfig({
       "@pages": "/src/pages",
       "@utils": "/src/utils",
       "@interface": "/src/interface",
+      "@lib": "/src/lib",
     },
   },
 });

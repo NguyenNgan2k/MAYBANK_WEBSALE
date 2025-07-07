@@ -1,5 +1,7 @@
 import React from "react";
 import FormSearchContracts from "./form/formSearchContracts";
+import IcCheck from '@assets/img/icon/check.svg'
+
 
 const ContractsPage: React.FC = () => {
   return (
@@ -33,8 +35,16 @@ const ContractsPage: React.FC = () => {
               <td>11/06/2025</td>
               <td>1W</td>
               <td>Chưa duyệt</td>
-              <td></td>
-              <td></td>
+              <td>
+                <span className="flex justify-center">
+                  <img src={IcCheck} className="w-5 h-5" />
+                </span>
+              </td>
+              <td>
+                <span className="flex justify-center">
+                  <img src={IcCheck} className="w-5 h-5" />
+                </span>
+              </td>
               <td className="text-primary cursor-pointer underline">Thanh lý</td>
             </tr>
             <tr>
@@ -46,8 +56,16 @@ const ContractsPage: React.FC = () => {
               <td>11/06/2025</td>
               <td>1W</td>
               <td>Chưa duyệt</td>
-              <td></td>
-              <td></td>
+              <td>
+                <span className="flex justify-center">
+                  <img src={IcCheck} className="w-5 h-5" />
+                </span>
+              </td>
+              <td>
+                <span className="flex justify-center">
+                  <img src={IcCheck} className="w-5 h-5" />
+                </span>
+              </td>
               <td className="text-primary cursor-pointer underline">Thanh lý</td>
             </tr>
           </tbody>

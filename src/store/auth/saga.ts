@@ -1,13 +1,13 @@
 import { take, fork, cancel, call, put, cancelled } from "redux-saga/effects";
-import { handleApiErrors } from "lib/api-error";
+import { handleApiErrors } from "@/lib/api-error";
 
 import * as actions from "./actionType";
 import * as clientActions from "../client/actionType";
 import { loginError, loginSuccess } from "./actions";
 
 import axios from "axios";
-import { clientTokenUnset } from "./actions";
-import NetClientInfo from "utils/netInfo";
+import { clientTokenUnset } from "@store/client/actions";
+import NetClientInfo from "@/utils/netInfo";
 
 axios.defaults.headers.post["Content-Type"] = "application/json; charset=UTF-8";
 axios.defaults.timeout = 5000;

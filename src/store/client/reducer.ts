@@ -1,11 +1,13 @@
 import * as actions from "./actionType";
 
 export interface ClientState {
+  token: any;
   symbolActive: any;
   dblPri: any;
 }
 
 const initialState = {
+  token: null,
   symbolActive: null,
   dblPri: null,
 };
@@ -24,6 +26,12 @@ export default function clientReducer(
       return {
         ...state,
         dblPri: action.data,
+      };
+
+    case actions.CLIENT_UNSET:
+      return {
+        ...state,
+        token: null,
       };
 
     default:

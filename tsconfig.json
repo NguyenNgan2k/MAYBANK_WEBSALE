@@ -27,9 +27,10 @@
       "@assets/*": ["assets/*"],
       "@pages/*": ["pages/*"],
       "@utils/*": ["utils/*"],
-      "@interface/*": ["interface/*"]
+      "@interface/*": ["interface/*"],
+      "@lib/*": ["lib/*"]
     },
     "types": ["vite-plugin-svgr/client"]
   },
-  "include": ["src", "custom.d.ts"]
+  "include": ["src", "custom.d.ts", "src/lib/.ts"]
 }
