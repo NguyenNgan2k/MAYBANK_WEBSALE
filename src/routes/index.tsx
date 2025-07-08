@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import DefaultLayout from "@/layouts/DefaultLayout";
 
-// const Login = React.lazy(() => import("@containers/login"));
+const Login = React.lazy(() => import("@pages/auth/Login"));
 const DashboardPage = React.lazy(() => import("@pages/dashboard/index"));
 const CustomersPage = React.lazy(() => import("@pages/customers/index"));
 const OrdersPage = React.lazy(() => import("@pages/orders/index"));
@@ -21,7 +21,7 @@ const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-      {/* <Route path="/login" element={<Login />} /> */}
+      <Route path="/login" element={<Login />} />
       <Route element={<DefaultLayout />}>
         <Route
           path="/home"

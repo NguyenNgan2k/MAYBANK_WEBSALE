@@ -1,5 +1,12 @@
 import * as actions from "./actionType";
 
+export function clientTokenSet(params: any): actions.ClientSetAction {
+  return {
+    type: actions.CLIENT_SET,
+    data: params,
+  };
+}
+
 export function clientTokenUnset(): actions.ClientUnsetAction {
   return {
     type: actions.CLIENT_UNSET,

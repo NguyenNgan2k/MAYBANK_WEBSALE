@@ -152,7 +152,7 @@ const SelectBond: FunctionComponent<Props> = ({
     <div
       ref={wrapperRef}
       className={
-        'form-search flex items-center relative ' + className
+        'form-input-search flex items-center relative ' + className
       }
     >
       <img src={IcSearch} className="w-4 h-4 mr-2" />

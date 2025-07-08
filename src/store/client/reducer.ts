@@ -17,6 +17,18 @@ export default function clientReducer(
   action: actions.ClientAction | any
 ): ClientState {
   switch (action.type) {
+    case actions.CLIENT_SET:
+      return {
+        ...state,
+        token: action.data,
+      };
+
+    case actions.CLIENT_UNSET:
+      return {
+        ...state,
+        token: null,
+      };
+
     case actions.SYMBOL_ACTIVE_SET:
       return {
         ...state,
@@ -26,12 +38,6 @@ export default function clientReducer(
       return {
         ...state,
         dblPri: action.data,
-      };
-
-    case actions.CLIENT_UNSET:
-      return {
-        ...state,
-        token: null,
       };
 
     default:

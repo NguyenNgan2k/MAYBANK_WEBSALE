@@ -79,7 +79,15 @@ body {
   text-transform: initial !important;
 }
 
-.form-search {
+.form-input-login {
+  width: 100%;
+  height: 40px;
+  border: none;
+  background: var(--color-bg-input);
+  font-size: 14px;
+}
+
+.form-input-search {
   height: 28px;
   border-radius: 6px;
   padding: 0px 8px;

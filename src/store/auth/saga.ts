@@ -7,64 +7,19 @@ import { loginError, loginSuccess } from "./actions";
 
 import axios from "axios";
 import { clientTokenUnset } from "@store/client/actions";
-import NetClientInfo from "@/utils/netInfo";
 
 axios.defaults.headers.post["Content-Type"] = "application/json; charset=UTF-8";
 axios.defaults.timeout = 5000;
 
-const appUrl = `${process.env.REACT_APP_API_URL}`;
+const appUrl = "http://192.168.1.138:8099";
 
 async function loginApi(username: string, password: string) {
-  const loginUrl = `${appUrl}/TraditionalService`;
-
-  const netInfo = NetClientInfo();
-  const _info =
-    netInfo.browser +
-    " " +
-    netInfo.browserVersion +
-    " - " +
-    netInfo.os +
-    " " +
-    netInfo.osVersion;
-
+  const loginUrl = `${appUrl}/login`;
+  console.log("loginUrl", loginUrl);
   let _params = {
-    group: "L",
-    user: "",
-    session: "",
-    channel: "W",
-    data: {
-      type: "string",
-      cmd: "Web.sCheckLogin",
-      p1: username,
-      p2: password,
-      p3: "W",
-      p4: "",
-      p6: _info || "",
-    },
+    username: username,
+    password: password,
   };
-
-  // return {
-  //   cmd: 'Web.sCheckLogin',
-  //   oID: 'MODE_SYN0fa5ebfb-a7f8-480f-b865-4d409e5a0146',
-  //   rc: 1,
-  //   rs: 'OK',
-  //   data: {
-  //     user: '030001',
-  //     name: 'nguyễn xuân khánh',
-  //     sid: 'dabbef5a-7bfe-488f-8e2c-ea2a13a81acb',
-  //     address: 'H',
-  //     defaultAcc: '0300011',
-  //     iFlag: 1,
-  //     CountLoginFail: 0,
-  //     AuthenType: 'I',
-  //     IP: '27.72.57.102',
-  //     AuthenFlag: '',
-  //     CustomerCode: '',
-  //     ConfirmFlag: 0,
-  //     LoginPeriod: 0,
-  //     LastLoginTime: '',
-  //   },
-  // };
 
   try {
     const response = axios.post(loginUrl, JSON.stringify(_params), {

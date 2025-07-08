@@ -1,3 +1,9 @@
+export const CLIENT_SET = "CLIENT_SET";
+export interface ClientSetAction {
+  type: typeof CLIENT_SET;
+  data: any;
+}
+
 export const CLIENT_UNSET = "CLIENT_UNSET";
 export interface ClientUnsetAction {
   type: typeof CLIENT_UNSET;
@@ -15,4 +21,8 @@ export interface SetDblPriceAction {
   data: any;
 }
 
-export type ClientAction = SetSymbolActiveAction;
+export type ClientAction =
+  | ClientSetAction
+  | ClientUnsetAction
+  | SetSymbolActiveAction
+  | SetDblPriceAction;

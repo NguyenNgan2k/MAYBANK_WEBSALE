@@ -1,6 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
 import { useController, UseControllerProps } from 'react-hook-form';
-// import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
 import EyeIcon from '@assets/img/icon/eye.svg';
 import EyeSlashIcon from '@assets/img/icon/eyeSlash.svg';
 
@@ -29,7 +28,7 @@ const RenderFieldInput: FunctionComponent<Props> = ({
   const [typeInput, setTypeInput] = useState(type);
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <input
         {...field}
         type={typeInput}
@@ -41,21 +40,21 @@ const RenderFieldInput: FunctionComponent<Props> = ({
           borderColor: isTouched && error ? 'var(--color-bd-error)' : undefined,
         }}
       />
-      {/* {type === 'password' && (
+      {type === 'password' && (
         <span
           className="absolute"
-          style={{ top: '7px', right: '10px' }}
+          style={{ top: '10px', right: '10px' }}
           onClick={() =>
             setTypeInput(typeInput === 'text' ? 'password' : 'text')
           }
         >
           {typeInput === 'text' ? (
-            <EyeIcon className="h-4" />
+            <img src={EyeIcon} className="h-5" />
           ) : (
-            <EyeSlashIcon className="h-4" />
+            <img src={EyeSlashIcon} className="h-5" />
           )}
         </span>
-      )} */}
+      )}
       {isTouched && error && (
         <div
           style={{
